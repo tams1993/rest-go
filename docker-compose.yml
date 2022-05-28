@@ -1,0 +1,19 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+  database:
+    container_name: database
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pass
+      POSTGRES_USER: pg
+      POSTGRES_DB: crud
+    ports:
+      - 5432:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
